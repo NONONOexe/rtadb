@@ -18,7 +18,7 @@ About `postgis/postgis` image used this container, see the [page](https://github
 
 ### Sample Database
 
-Once you have started a database container, you can build the sample database using the [R script](R/build-database.R)(R version >) contained in this repository.
+Once you have started a database container, you can build the sample database using the [R script](R/build-database.R)(depends R ≥ 4.1) contained in this repository.
 
 The sample database contains followings:
 
