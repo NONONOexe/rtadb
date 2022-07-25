@@ -41,6 +41,6 @@ Each data using the sample database be obtained from followings:
 | `traffic-volumes-points` | Location data of the spot traffic volume measurement points. The detailed version A of location information of spot traffic volume is included. | - |
 | `traffic-volumes` | Spot traffic volume mesurement data. | [here](https://www.jartic.or.jp/service/opendata/) |
 
-## 📝 License
+## 📝License
 
 This project is [MIT](LICENSE) licensed.
