@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  db:
+    image: postgis/postgis
+    restart: always
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: p@ssw0rd
+      POSTGRES_DB: traffic_accident_database
+      POSTGRES_INITDB_ARGS: "--encoding=UTF-8"
+    ports:
+      - 5432:5432
+    volumes:
+      - data:/var/lib/postgresql/data
+volumes:
+  data:
