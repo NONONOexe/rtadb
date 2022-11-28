@@ -38,7 +38,7 @@ Each data using the sample database be obtained from followings:
 | -- | -- |:--:|
 | `traffic-accidents` | Traffic accident data provided by Aichi prefectural police. | - |
 | `administrative-areas` | Information on administrative areas such as cities and wards. Information on the names of the administrative districts of Aichi Prefecture is included in [`aichi.csv`](data-raw/administrative-areas/aichi.csv). Spatial information on administrative areas is provided by R Package 'jpndistrict'. | - |
-| `population-cencus` | Population of each municipality in Aichi Prefecture. | [here](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001049104&cycle=0&tclass1=000001049105&stat_infid=000032143614&tclass2val=0) |
+| `population-census` | Population of each municipality in Aichi Prefecture. | [here](https://www.e-stat.go.jp/stat-search/files?page=1&layout=datalist&toukei=00200521&tstat=000001049104&cycle=0&tclass1=000001049105&stat_infid=000032143614&tclass2val=0) |
 | `land-use` | Data classified by land in Aichi Prefecture. | [here](https://nlftp.mlit.go.jp/kokjo/inspect/landclassification/land/dojyou.html) |
 | `traffic-volumes-points` | Location data of the spot traffic volume measurement points. The detailed version A of location information of spot traffic volume is included. | - |
 | `traffic-volumes` | Spot traffic volume mesurement data. | [here](https://www.jartic.or.jp/service/opendata/) |
