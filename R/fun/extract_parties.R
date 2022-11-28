@@ -40,6 +40,6 @@ extract_parties <- function(data) {
       party_job        = `□職業_職業名称`,
       purpose          = `■通行目的_通行目的名称`,
     ) |>
-    map_df(str_trim) |>
-    mutate(party_age = as.integer(party_age))
+    purrr::map_df(stringr::str_trim) |>
+    dplyr::mutate(party_age = as.integer(party_age))
 }

@@ -1,0 +1,11 @@
+# Settings apply across all Linux distros running on WSL 2
+[wsl2]
+
+# Limits VM memory to use no more than 8 GB
+memory=8GB
+
+# Sets the VM to use two virtual processors
+processors=2
+
+# Sets amount of swap storage space to 16GB
+swap=16GB

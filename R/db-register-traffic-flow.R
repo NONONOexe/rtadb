@@ -7,7 +7,7 @@ path_tvp <- "data-raw/traffic-volume-points/54愛知県.zip"
 path_tvr <- "data-raw/traffic-volumes/"
 
 # connect the database
-source("R/fun/db_connect.R")
+source("R/fun/db_connect.R", local = TRUE)
 conn <- db_connect("config/database.yml")
 
 DBI::dbWithTransaction(conn, {
@@ -22,14 +22,14 @@ DBI::dbWithTransaction(conn, {
   }
   
   # register the traffic volume measurement points
-  source("R/fun/db_import_traffic_volume_points.R")
+  source("R/fun/db_import_traffic_volume_points.R", local = TRUE)
   db_import_traffic_volume_points(path_tvp, conn)
   
   # register the traffic volume
-  source("R/fun/db_import_traffic_volumes.R")
+  source("R/fun/db_import_traffic_volumes.R", local = TRUE)
   db_import_traffic_volumes_dir(path_tvr, conn)
   
 })
 
 # disconnect from the database
-RPostgreSQL::dbDisconnect(conn)
+dbDisconnect(conn)

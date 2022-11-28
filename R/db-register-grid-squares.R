@@ -13,10 +13,10 @@ second_grid_squares <-
     geometry
   )
 
-basic_grid_squares <-
+standard_grid_squares <-
   jpmesh::administration_mesh(23, "1") |>
   dplyr::transmute(
-    basic_grid_square_code = meshcode,
+    standard_grid_square_code = meshcode,
     second_grid_square_code   = stringr::str_sub(meshcode, 1L, 6L),
     geometry
   )
@@ -25,7 +25,7 @@ half_grid_squares <-
   jpmesh::administration_mesh(23, "0.5") |>
   dplyr::transmute(
     half_grid_square_code     = meshcode,
-    basic_grid_square_code = stringr::str_sub(meshcode, 1L, 8L),
+    standard_grid_square_code = stringr::str_sub(meshcode, 1L, 8L),
     geometry
   )
 
@@ -60,12 +60,12 @@ DBI::dbWithTransaction(conn, {
                     append    = TRUE)
   
   # standard grid squares
-  if (!DBI::dbExistsTable(conn, "basic_grid_squares")) {
-    db_execute(conn, "sql/ddl/basic_grid_squares.sql")
+  if (!DBI::dbExistsTable(conn, "standard_grid_squares")) {
+    db_execute(conn, "sql/ddl/standard_grid_squares.sql")
   }
   DBI::dbWriteTable(conn      = conn,
-                    name      = "basic_grid_squares",
-                    value     = basic_grid_squares,
+                    name      = "standard_grid_squares",
+                    value     = standard_grid_squares,
                     row.names = FALSE,
                     overwrite = FALSE,
                     append    = TRUE)

@@ -1,18 +1,14 @@
-## 
-
-# clean up the environment
-rm(list = ls()); gc()
+## tutorial
 
 # set the file encoding
 options(encoding = "UTF-8")
 
 # load libraries
-if(!require("pacman")) install.packages("pacman")
-pacman::p_load(DBI,
-               RPostgres,
-               sf,
-               tidyverse,
-               RColorBrewer)
+library(DBI)
+library(RPostgres)
+library(sf)
+library(tidyverse)
+library(RColorBrewer)
 
 tictoc::tic()
 
@@ -21,7 +17,7 @@ source("R/fun/db_connect.R")
 conn <- db_connect("config/database.yml")
 
 accidents <- sf::read_sf(conn, "accidents") |>
-  dplyr::filter(lubridate::year(occurence_date) == 2020)
+  dplyr::filter(lubridate::year(occurrence_date) == 2020)
 grid_squares <- sf::read_sf(conn, "standard_grid_squares")
 cities <- sf::read_sf(conn, "cities")
 

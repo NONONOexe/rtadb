@@ -2,7 +2,10 @@
 
 db_import_traffic_accidents <- function(conn, path) {
   # read the original data of traffic accidents
-  data <- readxl::read_excel(path, trim_ws = TRUE) |>
+  data <-
+    readxl::read_excel(path,
+                       trim_ws = TRUE,
+                       .name_repair = ~ make.unique(.x, "_")) |>
     dplyr::filter(!is.na(`□地図情報_Ｘ座標`) & !is.na(`□地図情報_Ｙ座標`))
   
   # extract accident data

@@ -3,10 +3,23 @@
 # extract the accident data set from original data.
 # if there is not decimal point for latitude/longitude
 # (format for 2019-2020), it will be complemented.
-
 extract_accidents <- function(data) {
   # import functions
   source("R/fun/convert_deg.R", local = TRUE)
+
+  # convert day night id to type
+  if (!"□昼夜_昼夜名称" %in% names(data) &&
+      "□昼夜_昼夜" %in% names(data)) {
+    data <- data |>
+      dplyr::mutate(
+        `□昼夜_昼夜名称` = dplyr::case_when(
+          "□昼夜_昼夜" %in% c(3, 8) ~ "明",
+          "□昼夜_昼夜" == 4 ~ "昼",
+          "□昼夜_昼夜" %in% c(5, 6) ~ "暮",
+          "□昼夜_昼夜" == 7 ~ "夜"
+        )
+      )
+  }
 
   data |>
     dplyr::distinct(`■本票番号（共通）_本票番号`, .keep_all = TRUE) |>

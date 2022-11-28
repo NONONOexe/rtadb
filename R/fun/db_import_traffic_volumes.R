@@ -56,7 +56,7 @@ db_import_traffic_volumes_csv <- function(csv_file, conn) {
 db_import_traffic_volumes <- function(path, conn) {
   # create a temporary directory for unzip
   source("R/fun/unzip_to_temp.R", local = TRUE)
-  temp_dir <- unzip_to_temp(path, "traffic-volumes")
+  temp_dir <- unzip_to_temp(path, "traffic-volumes", "UTF-8")
   
   # list the csv file path
   csv_files <- fs::dir_ls(temp_dir,
@@ -79,7 +79,7 @@ db_import_traffic_volumes <- function(path, conn) {
 
 db_import_traffic_volumes_dir <- function(dir, conn) {
   # register the data from each zips
-  fs::dir_ls(dir, recurse = FALSE, type = "file", glob = "*.zip") |>
+  dir_ls(dir, recurse = FALSE, type = "file", glob = "*.zip") |>
     sort(decreasing = FALSE) |>
-    purrr::walk(db_import_traffic_volumes, conn)
+    walk(db_import_traffic_volumes, conn)
 }
