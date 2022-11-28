@@ -12,7 +12,9 @@ Make sure you have [docker](https://www.docker.com/) installed.
 
 In order to run the container capable of serving a PostGIS-enabled database, the following command at the root of your project:
 
-    docker-compose up -d
+    docker-compose up -d --build
+
+After executing the command, you can open RStudio as the analysis environment by accessing [http://localhost:8787](http://localhost:8787).
 
 About `postgis/postgis` image used this container, see the [page](https://github.com/postgis/docker-postgis).
 
