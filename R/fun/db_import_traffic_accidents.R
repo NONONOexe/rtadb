@@ -17,12 +17,13 @@ db_import_traffic_accidents <- function(conn, path) {
   parties <- data |> extract_parties()
 
   # register the accident data set
-  DBI::dbWriteTable(conn      = conn,
-                    name      = "accidents",
-                    value     = accidents,
-                    row.names = FALSE,
-                    overwrite = FALSE,
-                    append    = TRUE)
+  DBI::dbWriteTable(conn        = conn,
+                　  name        = "accidents",
+                    value       = accidents,
+                    row.names   = FALSE,
+                    overwrite   = FALSE,
+                    append      = TRUE,
+                　  field.types = c(geometry = "sf"))
 
   # register the party data set
   DBI::dbWriteTable(conn      = conn,

@@ -4,9 +4,6 @@
 # if there is not decimal point for latitude/longitude
 # (format for 2019-2020), it will be complemented.
 extract_accidents <- function(data) {
-  # import functions
-  source("R/fun/convert_deg.R", local = TRUE)
-
   # convert day night id to type
   if (!"□昼夜_昼夜名称" %in% names(data) &&
       "□昼夜_昼夜" %in% names(data)) {
