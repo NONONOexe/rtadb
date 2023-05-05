@@ -1,17 +1,17 @@
-version: '3'
-
 services:
   rstudio:
-    build: docker/rstudio
+    build:
+      context: .
+      dockerfile: docker/rstudio/Dockerfile
     image: rtadb/rstudio
-    container_name: rtadb_rstudio
+    container_name: rtadb-rstudio
     environment:
       TZ: Asia/Tokyo
-      DISABLE_AUTH: "true"
+      DISABLE_AUTH: true
     ports:
       - "8787:8787"
     volumes:
-      - ".:/home/rstudio/rtadb"
+      - .:/home/rstudio/rtadb
   database:
     image: postgis/postgis
     container_name: rtadb_database
@@ -24,6 +24,6 @@ services:
       - "5432:5432"
     restart: always
     volumes:
-      - "data:/var/lib/postgresql/data"
+      - data:/var/lib/postgresql/data
 volumes:
   data:
