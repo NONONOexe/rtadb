@@ -14,7 +14,7 @@ services:
       - .:/home/rstudio/rtadb
   database:
     image: postgis/postgis
-    container_name: rtadb_database
+    container_name: rtadb-database
     environment:
       POSTGRES_USER: admin
       POSTGRES_PASSWORD: p@ssw0rd

@@ -4,13 +4,13 @@
 options(encoding = "UTF-8")
 
 # load libraries
-library(celestial)
 library(DBI)
 library(fs)
 library(jpndistrict)
 library(jpmesh)
 library(lubridate)
 library(readxl)
+library(rtatools)
 library(RPostgres)
 library(remotes)
 library(scales)
