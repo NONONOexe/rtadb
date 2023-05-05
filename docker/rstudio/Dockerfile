@@ -1,4 +1,4 @@
-FROM rocker/geospatial:4.2.2
+FROM rocker/geospatial:4.3.0
 
 # install japanese language libraries
 ENV LANG ja_JP.UTF-8
@@ -25,6 +25,7 @@ RUN install2.r -d TRUE -e -n -1 \
   patchwork \
   tictoc
 RUN installGithub.r \
+  NONONOexe/rtatools \
   uribo/jpmesh \
   uribo/jpndistrict
 
