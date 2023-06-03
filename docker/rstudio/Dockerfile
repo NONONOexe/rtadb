@@ -10,10 +10,17 @@ RUN sed -i '$d' /etc/locale.gen \
 RUN /bin/bash -c "source /etc/default/locale"
 RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
+# update packages list
+RUN apt-get update
+
 # install japanese fonts
-RUN apt-get update && apt-get install -y \
+RUN apt-get install -y \
   fonts-ipaexfont \
   fonts-noto-cjk
+
+# install libraries for rtatools
+RUN apt-get install -y \
+  libpoppler-cpp-dev
 
 # set working directory
 RUN echo "setwd(\"/home/rstudio/rtadb/\")" > /home/rstudio/.Rprofile
